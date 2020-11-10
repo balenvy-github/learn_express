@@ -1,0 +1,58 @@
+standar API
+
+{root.api}/{version}/{grouping}/{endpoint}
+SAMPLE:
+http://api.website.com/v1/auth/login
+
+STANDAR STATUS RESPONSE
+200 - OK                    --> Call API Success
+201 - CREATED               --> Post Success
+400 - BAD REQUEST           --> Error on client side (contoh error input)
+401 - UNAUTHORIZED          --> User not authorized to the request
+403 - FORBIDDEN             --> User not allowed to access
+404 - NOT FOUND             --> request Endpoint Not Found
+500 - INTERNAL SERVER ERROR --> Error on Server Side
+502 - BAD GATEWAY           --> Invalid Response From Another Request
+
+GROUP: Auth
+[1] - register
+{root.api}/{version}/auth/register
+
+req:
+{
+"name": "testing",
+"email": "test@email.com"
+"password": "123123"
+}
+
+res:
+{
+"message": "register success",
+"data": {
+	"id":1
+	"name": "testing",
+	"email": "test@email.com"
+	"password": "123123"
+	}
+}
+
+error-response:
+200 - OK                    --> Berhasil terhubung
+201 - CREATED               --> Berhasil membuat data
+400 - BAD REQUEST           --> Inputan yang anda masukkan salah
+401 - UNAUTHORIZED          --> Tidak diizinkan mengakses data
+403 - FORBIDDEN             --> Akses tidak diizinkan
+404 - NOT FOUND             --> Halaman tidak ditemukan
+500 - INTERNAL SERVER ERROR --> Sepertinya ada kesalahan dalam server
+502 - BAD GATEWAY           --> Server tidak valid
+
+
+
+[2] - login
+{root.api}/{version}/auth/login
+
+GROUP: Blog
+[1] - create blog post
+[2] - get blog post
+[3] - update blog post
+[4] - delete blog post
